@@ -1,4 +1,4 @@
-// AOC 2020 day 11 problem 1
+// AOC 2020 day 11
 
 use std::cmp::min;
 
