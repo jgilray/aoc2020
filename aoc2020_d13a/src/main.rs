@@ -63,8 +63,7 @@ fn main() -> std::io::Result<()> {
             arrival = inputstr.trim().parse().expect("bad arrival time");
             first_line = false;
         } else {
-            let busstr: Vec<&str> = inputstr.trim().split(',').collect();
-            for s in busstr {
+            inputstr.trim().split(',').for_each(|s| {
                 if s != "x" {
                     let busnum = s.parse::<i128>().expect("bad bus string");
                     busses.push(busnum);
@@ -74,7 +73,7 @@ fn main() -> std::io::Result<()> {
                     residues.push((busnum - r % busnum) % busnum);
                 }
                 r += 1;
-            }
+            })
         }
         inputstr.clear();
     }
