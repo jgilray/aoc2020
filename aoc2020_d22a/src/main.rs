@@ -20,8 +20,7 @@ fn combat(p1: &mut Vec<usize>, p2: &mut Vec<usize>, recurse: bool) -> bool {
     // combat until one player is out of cards
     while !p1.is_empty() && !p2.is_empty() {
         let p1_wins: bool = if recurse {
-            let state: (Vec<usize>, Vec<usize>) =
-                (p1.iter().copied().collect(), p2.iter().copied().collect());
+            let state: (Vec<usize>, Vec<usize>) = (p1.clone(), p2.clone());
             if !prev_decks.insert(state) {
                 true
             } else if p1.len() > p1[0] && p2.len() > p2[0] {
